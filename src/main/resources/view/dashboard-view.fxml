@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.TecnoBinaryJC.abarroteria.kinal.controller.DashboardController">
+    <stylesheets>
+        <URL value="@/main/resources/css/dashboard-view.css" />
+    </stylesheets>
+   <children>
+      <GridPane layoutX="-2.0" layoutY="1.0" prefHeight="400.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="192.79998779296875" minWidth="10.0" prefWidth="68.79998779296875" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.8000183105469" minWidth="10.0" prefWidth="78.60003662109376" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="432.99999999999994" minWidth="10.0" prefWidth="419.3999633789062" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="127.79999389648438" minHeight="3.79999675750733" prefHeight="52.59998779296875" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="328.7999755859375" minHeight="10.0" prefHeight="269.00001220703126" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="78.19998779296873" minHeight="7.800024414062477" prefHeight="73.79998779296875" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="188.0" prefWidth="270.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="2" />
+            <StackPane prefHeight="132.0" prefWidth="249.0" GridPane.columnSpan="3" GridPane.rowIndex="2">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/cheems-4u7sa9woj31espfs.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <Button layoutX="-31.0" layoutY="111.0" mnemonicParsing="false" onAction="#deleteProducto" prefHeight="25.0" prefWidth="90.0" text="Eliminar" />
+               </children>
+            </Pane>
+            <TableView fx:id="tableProducto" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+              <columns>
+                <TableColumn fx:id="tableColumnIdProducto" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="tableColumnNombreProducto" prefWidth="75.0" text="Nombre" />
+                  <TableColumn fx:id="tableColumnStock" prefWidth="75.0" text="stock" />
+                  <TableColumn fx:id="tableColumnPrecio" prefWidth="75.0" text="precio" />
+              </columns>
+            </TableView>
+            <TableView prefHeight="354.0" prefWidth="561.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1">
+                   <columns>
+                    <TableColumn prefWidth="75.0" text="C2" />
+                   </columns>
+                </TableColumn>
+              </columns>
+            </TableView>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
