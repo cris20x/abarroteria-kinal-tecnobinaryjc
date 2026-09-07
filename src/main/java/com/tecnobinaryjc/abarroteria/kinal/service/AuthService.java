@@ -1,0 +1,45 @@
+package main.java.com.tecnobinaryjc.abarroteria.kinal.service;
+
+import main.java.com.tecnobinaryjc.abarroteria.kinal.dto.request.LoginDTORequest;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.dto.response.LoginDTOResponse;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.repository.AuthRepository;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.security.jbcrypt.BCrypt;
+
+public class AuthService {
+    
+    private final AuthRepository authRepository;
+
+    public AuthService(AuthRepository authRepository) {
+        this.authRepository = authRepository;
+    }
+    
+    public LoginDTOResponse login(LoginDTORequest request){
+        
+        if(request == null){
+            throw new RuntimeException("Los datos están vacios");
+        }else if(request.getEmail() == null || request.getPassword() == null){  
+            throw new RuntimeException("Uno o los dos campos están vacios");           
+        }else if(request.getEmail().isEmpty() || request.getPassword().isEmpty()){  
+            throw new RuntimeException("No puedes dejar compos en blanco");
+        }
+        LoginDTOResponse response = authRepository.findUserByEmail(request);
+        if(response == null){
+            throw new RuntimeException("Usuario no encontrado");
+        }
+        
+        if(response.getContrasenaHash() == null){
+            throw new RuntimeException("No se ha podido concretar la operación.");
+        }else{ 
+            if(request.getPassword().equals(response.getContrasenaHash())){  
+                System.out.println("null");
+                return response; //new LoginDTOResponse(response.getNombre(), response.getApellido(), response.getNombreRol());
+            }else{
+                
+                System.err.println(false);
+            
+            }
+        }
+        return null;
+    }
+    
+}
