@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ComboBox;
+import javafx.collections.FXCollections;
 import javafx.scene.control.TextField;
 import main.java.com.TecnoBinaryJC.abarroteria.kinal.service.usuario.UsuarioService;
 import main.java.com.TecnoBinaryJC.abarroteria.kinal.util.SceneManager;
@@ -25,6 +27,8 @@ public class RegisterController implements Initializable {
     private PasswordField txtFieldPassword;
     @FXML
     private PasswordField txtFieldConfirmPassword;
+    @FXML
+    private ComboBox<String> comboBoxRol;
 
     public RegisterController(UsuarioService usuarioService, SceneManager sceneManager) {
         this.usuarioService = usuarioService;
@@ -33,7 +37,10 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        comboBoxRol.setItems(FXCollections.observableArrayList(
+                "1. Administrador", "2. Cliente"
+        ));
+        comboBoxRol.setValue("2. Cliente");
     }
 
     @FXML
@@ -44,8 +51,15 @@ public class RegisterController implements Initializable {
         String email = txtFieldEmail.getText();
         String password = txtFieldPassword.getText();
         String confirmPassword = txtFieldConfirmPassword.getText();
+        String rolSeleccionado = comboBoxRol.getValue();
 
-        if (password == null || !password.equals(confirmPassword)) {
+        if (rolSeleccionado == null || rolSeleccionado.isBlank()) {
+            sceneManager.showAlertInfo("Rol requerido", "Selecciona un rol", "Debes seleccionar Administrador o Cliente.", Alert.AlertType.WARNING);
+            return;
+        }
+        int idRol = rolSeleccionado.startsWith("1.") ? 1 : 2;
+
+        if (password == null || password.isBlank() || !password.equals(confirmPassword)) {
             sceneManager.showAlertInfo(
                     "Contraseñas distintas",
                     "Revisa la contraseña",
@@ -56,7 +70,7 @@ public class RegisterController implements Initializable {
         }
 
         try {
-            usuarioService.registrar(nombre, apellido, email, password);
+            usuarioService.registrar(nombre, apellido, email, password, idRol);
 
             sceneManager.showAlertInfo(
                     "Registro exitoso",

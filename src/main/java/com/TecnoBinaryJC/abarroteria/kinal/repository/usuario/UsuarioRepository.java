@@ -54,7 +54,7 @@ public class UsuarioRepository {
     
     public boolean registrarUsuario(Usuario usuario){
         
-        String sql = "insert into usuarios (idusuarios, nombre, apellido, email, contrasena_hash, id_rol) values (?, ?, ?, ?, ?, ?)";
+        String sql = "insert into usuarios (id_usuario, nombre, apellido, email, contrasena_hash, id_rol) values (?, ?, ?, ?, ?, ?)";
         
         try(PreparedStatement pst = DataBaseConnection.getDataBaseConnection().prepareStatement(sql)){
             

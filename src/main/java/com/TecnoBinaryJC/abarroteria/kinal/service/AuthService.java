@@ -22,6 +22,7 @@ public class AuthService {
         }else if(request.getEmail().isEmpty() || request.getPassword().isEmpty()){  
             throw new RuntimeException("No puedes dejar compos en blanco");
         }
+        request.setEmail(request.getEmail().trim().toLowerCase());
         LoginDTOResponse response = authRepository.findUserByEmail(request);
         if(response == null){
             throw new RuntimeException("Usuario no encontrado");

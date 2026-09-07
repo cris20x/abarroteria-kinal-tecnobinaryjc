@@ -10,17 +10,13 @@ import main.java.com.TecnoBinaryJC.abarroteria.kinal.security.jbcrypt.BCrypt;
  */
 public class UsuarioService {
     
-    // TODO: verificar que este id exista en la tabla "roles" de tu base de datos
-    // (rol por defecto asignado a los usuarios que se registran desde la app).
-    private static final int ID_ROL_POR_DEFECTO = 2;
-    
     private UsuarioRepository usuarioRepository;
     
     public UsuarioService(UsuarioRepository usuarioRepository){
         this.usuarioRepository = usuarioRepository;
     }
     
-    public void registrar(String nombre, String apellido, String email, String password){
+    public void registrar(String nombre, String apellido, String email, String password, int idRol){
         
         if(nombre == null || nombre.isBlank()){
             throw new RuntimeException("El nombre es obligatorio.");
@@ -37,6 +33,12 @@ public class UsuarioService {
         if(password.length() < 6){
             throw new RuntimeException("La contraseña debe tener al menos 6 caracteres.");
         }
+        if (idRol != 1 && idRol != 2) {
+            throw new RuntimeException("El rol seleccionado no es válido.");
+        }
+        email = email.trim().toLowerCase();
+        nombre = nombre.trim();
+        apellido = apellido.trim();
         
         if(usuarioRepository.existeEmail(email)){
             throw new RuntimeException("Ya existe una cuenta registrada con ese correo.");
@@ -45,7 +47,7 @@ public class UsuarioService {
         String idUsuario = java.util.UUID.randomUUID().toString();
         String contrasenaHash = BCrypt.hashpw(password, BCrypt.gensalt());
         
-        Usuario usuario = new Usuario(idUsuario, nombre, apellido, email, contrasenaHash, ID_ROL_POR_DEFECTO);
+        Usuario usuario = new Usuario(idUsuario, nombre, apellido, email, contrasenaHash, idRol);
         
         boolean registrado = usuarioRepository.registrarUsuario(usuario);
         

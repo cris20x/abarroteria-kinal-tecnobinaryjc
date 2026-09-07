@@ -40,12 +40,15 @@ public class LoginController implements Initializable {
         sceneManager.showRegisterView();
     }
     
-    public void handleLogin()throws Exception{
-        if(txtFieldEmail.getText().isEmpty() || txtFieldEmail.getText().isBlank()){
-            sceneManager.showAlertInfo("Hay campos sin llenas", "No puedes dejar campos en blanco", "Intenta de nuevo", Alert.AlertType.INFORMATION);
-        }else{
+    public void handleLogin() throws Exception {
+        String email = txtFieldEmail.getText() == null ? "" : txtFieldEmail.getText().trim();
+        String password = txtFieldPassword.getText() == null ? "" : txtFieldPassword.getText();
+        if (email.isBlank() || password.isBlank()) {
+            sceneManager.showAlertInfo("Campos incompletos", "Completa la información", "Ingresa tu correo electrónico y contraseña.", Alert.AlertType.WARNING);
+            return;
+        } else {
             try{
-            LoginDTOResponse response = authService.login(new LoginDTORequest(txtFieldEmail.getText(), txtFieldPassword.getText()));
+            LoginDTOResponse response = authService.login(new LoginDTORequest(email, password));
             
             if(response == null){
             
@@ -60,8 +63,7 @@ public class LoginController implements Initializable {
             }
              
             }catch(RuntimeException e){
-                e.printStackTrace();
-                sceneManager.showAlertInfo("Error al iniciar sesión", "Verificar campos", "No se ha podido iniciar sesión", Alert.AlertType.ERROR);
+                sceneManager.showAlertInfo("Error al iniciar sesión", "Verifica tus credenciales", "No se ha podido iniciar sesión. Revisa tu correo y contraseña.", Alert.AlertType.ERROR);
             }
             
             

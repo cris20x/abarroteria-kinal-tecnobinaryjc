@@ -11,7 +11,7 @@ public class AuthRepository {
     
     public LoginDTOResponse findUserByEmail(LoginDTORequest request){
         
-        String sql = "select u.nombre, u.apellido, u.contrasena_hash, u.id_rol from usuarios as u inner join roles as r on u.id_rol = u.id_rol where u.email = ?";
+        String sql = "SELECT u.nombre, u.apellido, u.contrasena_hash, r.nombre_rol FROM usuarios u INNER JOIN roles r ON u.id_rol = r.id_rol WHERE LOWER(TRIM(u.email)) = LOWER(TRIM(?))";
         
         try(PreparedStatement pstm = DataBaseConnection.getDataBaseConnection().prepareStatement(sql)){
             
