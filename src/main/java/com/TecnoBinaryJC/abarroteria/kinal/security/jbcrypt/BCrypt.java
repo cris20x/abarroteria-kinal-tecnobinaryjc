@@ -12,7 +12,7 @@
 // ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.security.jbcrypt;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.security.jbcrypt;
 
 import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;

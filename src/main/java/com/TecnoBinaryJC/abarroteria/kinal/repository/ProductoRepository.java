@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.repository;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.repository;
 
 import javafx.collections.ObservableList;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.config.DataBaseConnection;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.model.Producto;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.config.DataBaseConnection;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.model.Producto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

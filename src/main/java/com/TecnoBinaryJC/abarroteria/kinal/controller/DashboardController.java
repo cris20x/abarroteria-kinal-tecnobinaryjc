@@ -1,4 +1,4 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.controller;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,9 +12,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.model.Producto;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.service.dashboard.DashboardService;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.util.SceneManager;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.model.Producto;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.service.dashboard.DashboardService;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.util.SceneManager;
 
 public class DashboardController implements Initializable {
 

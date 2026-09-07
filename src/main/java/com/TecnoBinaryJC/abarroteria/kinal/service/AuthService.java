@@ -1,9 +1,9 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.service;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.service;
 
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.dto.request.LoginDTORequest;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.dto.response.LoginDTOResponse;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.repository.AuthRepository;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.security.jbcrypt.BCrypt;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.dto.request.LoginDTORequest;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.dto.response.LoginDTOResponse;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.repository.AuthRepository;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.security.jbcrypt.BCrypt;
 
 public class AuthService {
     
@@ -22,7 +22,6 @@ public class AuthService {
         }else if(request.getEmail().isEmpty() || request.getPassword().isEmpty()){  
             throw new RuntimeException("No puedes dejar compos en blanco");
         }
-        request.setEmail(request.getEmail().trim().toLowerCase());
         LoginDTOResponse response = authRepository.findUserByEmail(request);
         if(response == null){
             throw new RuntimeException("Usuario no encontrado");
@@ -31,7 +30,7 @@ public class AuthService {
         if(response.getContrasenaHash() == null){
             throw new RuntimeException("No se ha podido concretar la operación.");
         }else{ 
-            if(BCrypt.checkpw(request.getPassword(), response.getContrasenaHash())){  
+            if(request.getPassword().equals(response.getContrasenaHash())){  
                 System.out.println("null");
                 return response; //new LoginDTOResponse(response.getNombre(), response.getApellido(), response.getNombreRol());
             }else{

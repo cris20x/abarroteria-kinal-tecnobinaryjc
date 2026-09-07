@@ -1,4 +1,4 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.config;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

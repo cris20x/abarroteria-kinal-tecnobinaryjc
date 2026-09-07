@@ -1,4 +1,4 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.config;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.config;
 
 public class Credentials {
     

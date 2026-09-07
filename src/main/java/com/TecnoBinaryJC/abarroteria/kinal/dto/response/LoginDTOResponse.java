@@ -1,4 +1,4 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.dto.response;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.dto.response;
 
 public class LoginDTOResponse {
     

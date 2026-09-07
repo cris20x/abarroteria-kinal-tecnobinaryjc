@@ -1,4 +1,4 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.model;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.model;
 
 public class Usuario {
     

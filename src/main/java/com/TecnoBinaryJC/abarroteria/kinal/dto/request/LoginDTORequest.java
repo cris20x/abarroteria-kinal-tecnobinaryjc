@@ -1,4 +1,4 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.dto.request;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.dto.request;
 
 public class LoginDTORequest {
     
