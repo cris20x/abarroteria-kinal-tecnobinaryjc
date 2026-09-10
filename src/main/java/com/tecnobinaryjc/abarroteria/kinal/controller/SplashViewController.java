@@ -52,7 +52,7 @@ public class SplashViewController implements Initializable {
         // 3. Llenado de barra de carga (2.5 segundos)
         Timeline progressTimeline = new Timeline(
             new KeyFrame(Duration.ZERO, new KeyValue(progressBar.progressProperty(), 0)),
-            new KeyFrame(Duration.seconds(2.0), new KeyValue(progressBar.progressProperty(), 1.0))
+            new KeyFrame(Duration.seconds(1.5), new KeyValue(progressBar.progressProperty(), 1.0))
         );
 
         progressTimeline.setOnFinished(event -> {
