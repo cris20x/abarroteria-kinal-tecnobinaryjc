@@ -33,18 +33,18 @@ public class SplashViewController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // 1. Teñir las capas para el efecto anaglifo (Rojo y Azul/Cian)
         ColorAdjust redFilter = new ColorAdjust();
-        redFilter.setHue(-0.9);      // Tono Rojo
+        redFilter.setHue(-0.5);      // Tono Rojo
         redFilter.setSaturation(1.0); // Máxima saturación
         imgRed.setEffect(redFilter);
 
         ColorAdjust blueFilter = new ColorAdjust();
-        blueFilter.setHue(0.8);       // Tono Azul / Cyan
+        blueFilter.setHue(0.2);       // Tono Azul / Cyan
         blueFilter.setSaturation(1.0); // Máxima saturación
         imgBlue.setEffect(blueFilter);
 
         // 2. Animación de desfase horizontal para el Glitch RGB
         Timeline glitchTimeline = new Timeline(
-            new KeyFrame(Duration.millis(50), e -> applyRgbGlitch())
+            new KeyFrame(Duration.millis(60), e -> applyRgbGlitch())
         );
         glitchTimeline.setCycleCount(Timeline.INDEFINITE);
         glitchTimeline.play();
@@ -52,7 +52,7 @@ public class SplashViewController implements Initializable {
         // 3. Llenado de barra de carga (2.5 segundos)
         Timeline progressTimeline = new Timeline(
             new KeyFrame(Duration.ZERO, new KeyValue(progressBar.progressProperty(), 0)),
-            new KeyFrame(Duration.seconds(3.0), new KeyValue(progressBar.progressProperty(), 1.0))
+            new KeyFrame(Duration.seconds(2.0), new KeyValue(progressBar.progressProperty(), 1.0))
         );
 
         progressTimeline.setOnFinished(event -> {
@@ -76,8 +76,8 @@ public class SplashViewController implements Initializable {
     private void applyRgbGlitch() {
         if (random.nextInt(10) > 4) { // Frecuencia del glitch
             // Desfases horizontales entre -8px y +8px
-            double redOffset = -8 + random.nextDouble() * 16;
-            double blueOffset = -8 + random.nextDouble() * 16;
+            double redOffset = -45 + random.nextDouble() * 90;
+            double blueOffset = -45 + random.nextDouble() * 90;
 
             imgRed.setTranslateX(redOffset);
             imgBlue.setTranslateX(blueOffset);

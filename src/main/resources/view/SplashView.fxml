@@ -16,14 +16,14 @@
         <!-- Contenedor para capas de efecto Glitch -->
         <StackPane fx:id="glitchContainer" prefWidth="220.0" prefHeight="220.0">
             <!-- Capa Roja (atrás, desfasada) -->
-            <ImageView fx:id="imgRed" fitWidth="220.0" preserveRatio="true" opacity="0.8">
+            <ImageView fx:id="imgRed" fitWidth="220.0" preserveRatio="true" opacity="0.9">
                 <image>
                     <Image url="@../img/TecnoBinaryLogo.png" />
                 </image>
             </ImageView>
 
             <!-- Capa Azul (atrás, desfasada) -->
-            <ImageView fx:id="imgBlue" fitWidth="220.0" preserveRatio="true" opacity="0.8">
+            <ImageView fx:id="imgBlue" fitWidth="220.0" preserveRatio="true" opacity="0.9">
                 <image>
                     <Image url="@../img/TecnoBinaryLogo.png" />
                 </image>
@@ -38,7 +38,7 @@
         </StackPane>
         
         <!-- Barra de progreso -->
-        <ProgressBar fx:id="progressBar" prefWidth="250.0" progress="0.0" 
+        <ProgressBar fx:id="progressBar" prefWidth="400.0" progress="0.0" 
                      style="-fx-accent: #00B3FF;" />
     </VBox>
 </StackPane>
