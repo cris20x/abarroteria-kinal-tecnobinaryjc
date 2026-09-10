@@ -1,7 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane minHeight="560.0" minWidth="820.0" prefHeight="650.0" prefWidth="1050.0" stylesheets="@../css/dashboard-view.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.tecnobinaryjc.abarroteria.kinal.controller.DashboardController">
-    <top><VBox spacing="4.0" styleClass="dashboard-header"><Label text="Inventario de productos" styleClass="dashboard-title"/><Label text="Consulta y administra los productos registrados" styleClass="dashboard-subtitle"/></VBox></top>
-    <center><VBox spacing="16.0" styleClass="dashboard-content"><TableView fx:id="tableProducto" VBox.vgrow="ALWAYS"><columns><TableColumn fx:id="tableColumnIdProducto" prefWidth="180.0" text="ID"/><TableColumn fx:id="tableColumnNombreProducto" prefWidth="300.0" text="Nombre"/><TableColumn fx:id="tableColumnStock" prefWidth="150.0" text="Stock"/><TableColumn fx:id="tableColumnPrecio" prefWidth="160.0" text="Precio"/></columns></TableView><HBox alignment="CENTER_RIGHT" spacing="12.0"><Button onAction="#handleLoadDataView" text="Actualizar" styleClass="secondary-button"/><Button onAction="#deleteProducto" text="Eliminar seleccionado" styleClass="danger-button"/></HBox></VBox></center>
+
+<BorderPane minHeight="560.0"
+            minWidth="820.0"
+            prefHeight="650.0"
+            prefWidth="1050.0"
+            stylesheets="@../css/dashboard-view.css"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.com.tecnobinaryjc.abarroteria.kinal.controller.DashboardController">
+
+    <top>
+        <VBox spacing="4.0" styleClass="dashboard-header">
+            <Label text="Inventario de productos"
+                   styleClass="dashboard-title"/>
+            <Label text="Consulta y administra los productos registrados"
+                   styleClass="dashboard-subtitle"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="16.0" styleClass="dashboard-content">
+
+            <TableView fx:id="tableProducto"
+                       VBox.vgrow="ALWAYS">
+
+                <columns>
+                    <TableColumn fx:id="tableColumnIdProducto"
+                                 prefWidth="180.0"
+                                 text="ID"/>
+
+                    <TableColumn fx:id="tableColumnNombreProducto"
+                                 prefWidth="300.0"
+                                 text="Nombre"/>
+
+                    <TableColumn fx:id="tableColumnStock"
+                                 prefWidth="150.0"
+                                 text="Stock"/>
+
+                    <TableColumn fx:id="tableColumnPrecio"
+                                 prefWidth="160.0"
+                                 text="Precio"/>
+                </columns>
+
+            </TableView>
+
+            <HBox alignment="CENTER_LEFT"
+                  spacing="12.0">
+
+                <Button onAction="#handleCerrarSesion"
+                        text="Cerrar sesión"
+                        styleClass="logout-button"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button onAction="#handleAnadirProducto"
+                        text="Añadir"
+                        styleClass="primary-button"/>
+
+                <Button onAction="#handleActualizarProducto"
+                        text="Actualizar"
+                        styleClass="secondary-button"/>
+
+                <Button onAction="#handleEliminarProducto"
+                        text="Eliminar seleccionado"
+                        styleClass="danger-button"/>
+
+            </HBox>
+
+        </VBox>
+    </center>
+
 </BorderPane>
