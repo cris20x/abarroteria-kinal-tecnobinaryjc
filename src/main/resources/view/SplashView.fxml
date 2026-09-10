@@ -8,7 +8,7 @@
 
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
-           fx:controller="main.java.com.TecnoBinaryJC.abarroteria.kinal.controller.SplashViewController"
+           fx:controller="main.java.com.tecnobinaryjc.abarroteria.kinal.controller.SplashViewController"
            prefWidth="800.0" prefHeight="500.0"
            style="-fx-background-color: #0F0F10;">
     
@@ -16,14 +16,14 @@
         <!-- Contenedor para capas de efecto Glitch -->
         <StackPane fx:id="glitchContainer" prefWidth="220.0" prefHeight="220.0">
             <!-- Capa Roja (atrás, desfasada) -->
-            <ImageView fx:id="imgRed" fitWidth="220.0" preserveRatio="true" opacity="0.8">
+            <ImageView fx:id="imgRed" fitWidth="220.0" preserveRatio="true" opacity="0.9">
                 <image>
                     <Image url="@../img/TecnoBinaryLogo.png" />
                 </image>
             </ImageView>
 
             <!-- Capa Azul (atrás, desfasada) -->
-            <ImageView fx:id="imgBlue" fitWidth="220.0" preserveRatio="true" opacity="0.8">
+            <ImageView fx:id="imgBlue" fitWidth="220.0" preserveRatio="true" opacity="0.9">
                 <image>
                     <Image url="@../img/TecnoBinaryLogo.png" />
                 </image>
@@ -38,7 +38,7 @@
         </StackPane>
         
         <!-- Barra de progreso -->
-        <ProgressBar fx:id="progressBar" prefWidth="250.0" progress="0.0" 
+        <ProgressBar fx:id="progressBar" prefWidth="400.0" progress="0.0" 
                      style="-fx-accent: #00B3FF;" />
     </VBox>
 </StackPane>

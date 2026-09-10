@@ -2,7 +2,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="600.0" minWidth="760.0" prefHeight="680.0" prefWidth="920.0" stylesheets="@../css/login-view.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.TecnoBinaryJC.abarroteria.kinal.controller.RegisterController">
+<AnchorPane minHeight="600.0" minWidth="760.0" prefHeight="680.0" prefWidth="920.0" stylesheets="@../css/login-view.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.tecnobinaryjc.abarroteria.kinal.controller.RegisterController">
     <children>
         <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" styleClass="transparent-scroll" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <content>
