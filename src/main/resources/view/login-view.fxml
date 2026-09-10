@@ -3,7 +3,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane minHeight="520.0" minWidth="760.0" prefHeight="620.0" prefWidth="920.0" stylesheets="@../css/login-view.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.TecnoBinaryJC.abarroteria.kinal.controller.LoginController">
+<AnchorPane minHeight="520.0" minWidth="760.0" prefHeight="620.0" prefWidth="920.0" stylesheets="@../css/login-view.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.tecnobinaryjc.abarroteria.kinal.controller.LoginController">
     <children>
         <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" styleClass="auth-root">
             <VBox alignment="CENTER" maxWidth="430.0" prefWidth="430.0" spacing="18.0" styleClass="auth-card">

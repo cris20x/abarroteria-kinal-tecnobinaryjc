@@ -14,15 +14,19 @@ import main.java.com.tecnobinaryjc.abarroteria.kinal.service.AuthService;
 import main.java.com.tecnobinaryjc.abarroteria.kinal.util.SceneManager;
 
 public class LoginController implements Initializable {
-    
+
     private final AuthService authService;
     private final SceneManager sceneManager;
+
     @FXML
     private Button btnRegistrar;
+
     @FXML
     private Button btnIniciarSesion;
+
     @FXML
-    private TextField txtFieldEmail ;
+    private TextField txtFieldEmail;
+
     @FXML
     private PasswordField txtFieldPassword;
 
@@ -33,78 +37,72 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Inicialización
     }
-    
-    public void handleLogin()throws Exception{
-        if(txtFieldEmail.getText().isEmpty() || txtFieldEmail.getText().isBlank()){
-            sceneManager.showAlertInfo("Hay campos sin llenas", "No puedes dejar campos en blanco", "Intenta de nuevo", Alert.AlertType.INFORMATION);
-        }else{
-            try{
-            LoginDTOResponse response = authService.login(new LoginDTORequest(txtFieldEmail.getText(), txtFieldPassword.getText()));
-            
-            if(response == null){
-            
-          sceneManager.showAlertInfo("Error al iniciar", "Campos invalidos", "No se ha podido iniciar sesión", Alert.AlertType.ERROR);
 
-            
-            }else{
-               System.out.println(response);
-            sceneManager.showAlertInfo("Bienvenido" + response.getNombre(), "Es bueno verte", "Inicio de sesión correcto", Alert.AlertType.CONFIRMATION);
-            sceneManager.showDashboardView();
-            
-            }
-             
-            }catch(RuntimeException e){
-                e.printStackTrace();
-                sceneManager.showAlertInfo("Error al iniciar sesión", "Verificar campos", "No se ha podido iniciar sesión", Alert.AlertType.ERROR);
-            }
-            
-            
+    @FXML
+    public void handleLogin() throws Exception {
+
+        if (txtFieldEmail.getText().isEmpty()
+                || txtFieldEmail.getText().isBlank()) {
+
+            sceneManager.showAlertInfo(
+                    "Hay campos sin llenar",
+                    "No puedes dejar campos en blanco",
+                    "Intenta de nuevo",
+                    Alert.AlertType.INFORMATION
+            );
+
+            return;
         }
-        
-    }
-    
-    /*public void handleLogin() {
 
         try {
 
-            // Validar correo
-            if (txtFieldEmail.getText() == null
-                    || txtFieldEmail.getText().isBlank()) {
-
-                throw new RuntimeException("El correo electrónico es obligatorio.");
-            }
-
-            // Validar contraseña
-            if (txtFieldPassword.getText() == null
-                    || txtFieldPassword.getText().isBlank()) {
-
-                throw new RuntimeException("La contraseña es obligatoria.");
-            }
-
-            // Crear solicitud de login
-            LoginDTORequest request = new LoginDTORequest(
-                    txtFieldEmail.getText().trim(),
-                    txtFieldPassword.getText()
+            LoginDTOResponse response = authService.login(
+                    new LoginDTORequest(
+                            txtFieldEmail.getText(),
+                            txtFieldPassword.getText()
+                    )
             );
 
-            // Intentar iniciar sesión
-            LoginDTOResponse response = authService.login(request);
+            if (response == null) {
 
-            // Mostrar información del usuario
-            System.out.println(
-                    "Nombre del usuario que inició sesión: "
-                    + response.getNombre()
-                    + " "
-                    + response.getNombreRol()
+                sceneManager.showAlertInfo(
+                        "Error al iniciar",
+                        "Campos inválidos",
+                        "No se ha podido iniciar sesión",
+                        Alert.AlertType.ERROR
+                );
+
+            } else {
+
+                System.out.println(response);
+
+                sceneManager.showAlertInfo(
+                        "Bienvenido " + response.getNombre(),
+                        "Es bueno verte",
+                        "Inicio de sesión correcto",
+                        Alert.AlertType.CONFIRMATION
+                );
+
+                sceneManager.showDashboardView();
+            }
+
+        } catch (RuntimeException e) {
+
+            e.printStackTrace();
+
+            sceneManager.showAlertInfo(
+                    "Error al iniciar sesión",
+                    "Verificar campos",
+                    "No se ha podido iniciar sesión",
+                    Alert.AlertType.ERROR
             );
-
-        } catch (Exception e) {
-
-            System.out.println("Error al iniciar sesión: " + e.getMessage());
-
         }
-    }*/
-    
+    }
+
+    @FXML
+    public void handleRegistrar() throws Exception {
+        sceneManager.showRegisterView();
+    }
 }

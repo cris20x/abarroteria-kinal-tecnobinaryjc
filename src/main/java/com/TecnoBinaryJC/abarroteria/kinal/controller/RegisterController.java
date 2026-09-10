@@ -1,4 +1,4 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.controller;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,8 +9,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.ComboBox;
 import javafx.collections.FXCollections;
 import javafx.scene.control.TextField;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.service.usuario.UsuarioService;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.util.SceneManager;
+
+import main.java.com.tecnobinaryjc.abarroteria.kinal.service.usuario.UsuarioService;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.util.SceneManager;
 
 public class RegisterController implements Initializable {
 

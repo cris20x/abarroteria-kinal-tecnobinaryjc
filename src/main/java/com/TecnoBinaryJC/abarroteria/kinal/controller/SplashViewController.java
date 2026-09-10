@@ -1,4 +1,4 @@
-package main.java.com.TecnoBinaryJC.abarroteria.kinal.controller;
+package main.java.com.tecnobinaryjc.abarroteria.kinal.controller;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -9,11 +9,10 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import main.java.com.TecnoBinaryJC.abarroteria.kinal.util.SceneManager;
-
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import main.java.com.tecnobinaryjc.abarroteria.kinal.util.SceneManager;
 
 public class SplashViewController implements Initializable {
 
