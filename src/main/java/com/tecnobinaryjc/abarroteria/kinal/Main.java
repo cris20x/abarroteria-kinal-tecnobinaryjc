@@ -19,6 +19,7 @@ public class Main extends Application {
         SceneManager sceneManager = new SceneManager(stage);
         
         sceneManager.showSplashView();
+        stage.setTitle("Abarrotería Kinal - TecnoBinaryJC");
         stage.show();
     }
 
