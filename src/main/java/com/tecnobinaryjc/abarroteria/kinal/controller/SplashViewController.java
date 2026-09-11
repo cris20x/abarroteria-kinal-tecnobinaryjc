@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 public class SplashViewController implements Initializable {
-
+/*PANTALLA DE CARGA INICIAL */
     @FXML private ImageView imgMain;
     @FXML private ImageView imgRed;
     @FXML private ImageView imgBlue;
@@ -31,25 +31,25 @@ public class SplashViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // 1. Teñir las capas para el efecto anaglifo (Rojo y Azul/Cian)
+
         ColorAdjust redFilter = new ColorAdjust();
-        redFilter.setHue(-0.5);      // Tono Rojo
-        redFilter.setSaturation(1.0); // Máxima saturación
+        redFilter.setHue(-0.5);      
+        redFilter.setSaturation(1.0); 
         imgRed.setEffect(redFilter);
 
         ColorAdjust blueFilter = new ColorAdjust();
-        blueFilter.setHue(0.2);       // Tono Azul / Cyan
-        blueFilter.setSaturation(1.0); // Máxima saturación
+        blueFilter.setHue(0.2);       
+        blueFilter.setSaturation(1.0); 
         imgBlue.setEffect(blueFilter);
 
-        // 2. Animación de desfase horizontal para el Glitch RGB
+
         Timeline glitchTimeline = new Timeline(
             new KeyFrame(Duration.millis(60), e -> applyRgbGlitch())
         );
         glitchTimeline.setCycleCount(Timeline.INDEFINITE);
         glitchTimeline.play();
 
-        // 3. Llenado de barra de carga (2.5 segundos)
+
         Timeline progressTimeline = new Timeline(
             new KeyFrame(Duration.ZERO, new KeyValue(progressBar.progressProperty(), 0)),
             new KeyFrame(Duration.seconds(1.5), new KeyValue(progressBar.progressProperty(), 1.0))
@@ -57,7 +57,7 @@ public class SplashViewController implements Initializable {
 
         progressTimeline.setOnFinished(event -> {
             glitchTimeline.stop();
-            // Restaurar posiciones al finalizar
+
             imgRed.setTranslateX(0);
             imgBlue.setTranslateX(0);
             try {
@@ -70,19 +70,16 @@ public class SplashViewController implements Initializable {
         progressTimeline.play();
     }
 
-    /**
-     * Aplica desfases horizontales rápidos e impredecibles a las capas roja y azul.
-     */
+
     private void applyRgbGlitch() {
-        if (random.nextInt(10) > 4) { // Frecuencia del glitch
-            // Desfases horizontales entre -8px y +8px
+        if (random.nextInt(10) > 4) { 
             double redOffset = -45 + random.nextDouble() * 90;
             double blueOffset = -45 + random.nextDouble() * 90;
 
             imgRed.setTranslateX(redOffset);
             imgBlue.setTranslateX(blueOffset);
         } else {
-            // Regresan al centro
+
             imgRed.setTranslateX(0);
             imgBlue.setTranslateX(0);
         }

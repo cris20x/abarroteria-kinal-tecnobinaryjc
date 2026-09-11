@@ -13,7 +13,7 @@ import main.java.com.tecnobinaryjc.abarroteria.kinal.dto.response.LoginDTORespon
 import main.java.com.tecnobinaryjc.abarroteria.kinal.service.AuthService;
 import main.java.com.tecnobinaryjc.abarroteria.kinal.util.SceneManager;
 
-// Controlador de la pantalla de inicio de sesión.
+
 public class LoginController implements Initializable {
     
     private final AuthService authService;
@@ -34,15 +34,15 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Sin configuración inicial adicional.
+
     }
 
-    // Navega a la pantalla de registro.
+
     public void handleRegistrar() throws Exception {
         sceneManager.showRegisterView();
     }
 
-    // Valida los campos e intenta iniciar sesión.
+
     public void handleLogin() throws Exception {
         String email = txtFieldEmail.getText() == null ? "" : txtFieldEmail.getText().trim();
         String password = txtFieldPassword.getText() == null ? "" : txtFieldPassword.getText();

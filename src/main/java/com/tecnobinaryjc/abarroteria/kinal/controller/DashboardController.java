@@ -36,40 +36,22 @@ public class DashboardController implements Initializable {
     @FXML
     private TableColumn<Producto, Double> tableColumnPrecio;
 
-    /**
-     * Constructor con dependencias.
-     * Se usa en producción a través del ControllerFactory del FXMLLoader
-     * (ver SceneManager#showDashboardView).
-     */
+
     public DashboardController(DashboardService dashboardService, SceneManager sceneManager) {
         this.dashboardService = dashboardService;
         this.sceneManager = sceneManager;
     }
 
-    /**
-     * Constructor sin argumentos.
-     * Necesario para que SceneBuilder pueda instanciar el controller y
-     * descubrir los métodos anotados con @FXML en el panel "Controller".
-     */
+
     public DashboardController() {
     }
 
-    /**
-     * Initializes the controller class.
-     *
-     * Aquí se configuran las columnas (cellValueFactory) y se cargan los
-     * productos desde la base de datos hacia la TableView.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarColumnas();
         cargarProductos();
     }
 
-    /**
-     * Vincula cada TableColumn con la propiedad correspondiente del modelo
-     * Producto. Sin esto, la tabla no sabe qué campo mostrar en cada columna.
-     */
     private void configurarColumnas() {
         tableColumnIdProducto.setCellValueFactory(
                 new PropertyValueFactory<>("id_producto")
@@ -85,12 +67,8 @@ public class DashboardController implements Initializable {
         );
     }
 
-    /**
-     * Carga la lista de productos desde el servicio y la muestra en la tabla.
-     * Se invoca desde initialize() y puede volver a llamarse para refrescar.
-     */
     private void cargarProductos() {
-        // SceneBuilder preview: dashboardService es null, no cargar nada.
+
         if (dashboardService == null) {
             return;
         }
@@ -110,26 +88,16 @@ public class DashboardController implements Initializable {
         }
     }
 
-    /**
-     * Recarga la tabla desde la base de datos.
-     */
+
     public void handleLoadDataView() {
         cargarProductos();
     }
 
-    /**
-     * Elimina el producto seleccionado en la tabla.
-     *
-     * IMPORTANTE: debe ser `public` (no `private`) para que SceneBuilder lo
-     * liste en el dropdown de `onAction`. El Introspector de JavaBeans que usa
-     * SceneBuilder solo descubre métodos públicos.
-     *
-     * El parámetro ActionEvent es el estándar para manejadores onAction.
-     */
+
     @FXML
     public void deleteProducto(ActionEvent event) {
         if (dashboardService == null) {
-            // SceneBuilder preview: no hay servicio inyectado, salir silenciosamente.
+
             return;
         }
 

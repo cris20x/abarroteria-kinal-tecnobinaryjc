@@ -15,7 +15,7 @@
     <VBox alignment="CENTER" spacing="25.0">
         <!-- Contenedor para capas de efecto Glitch -->
         <StackPane fx:id="glitchContainer" prefWidth="220.0" prefHeight="220.0">
-            <!-- Capa Roja (atrás, desfasada) -->
+            <!-- Capa Roja (atrás) -->
             <ImageView fx:id="imgRed" fitWidth="220.0" preserveRatio="true" opacity="0.9">
                 <image>
                     <Image url="@../img/TecnoBinaryLogo.png" />

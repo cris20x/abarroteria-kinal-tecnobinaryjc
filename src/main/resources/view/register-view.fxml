@@ -2,153 +2,207 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
-<AnchorPane minHeight="600.0" minWidth="760.0" prefHeight="680.0" prefWidth="920.0" stylesheets="@../css/login-view.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.tecnobinaryjc.abarroteria.kinal.controller.RegisterController">
+<AnchorPane minHeight="600.0"
+            minWidth="760.0"
+            prefHeight="680.0"
+            prefWidth="920.0"
+            stylesheets="@../css/login-view.css"
+            styleClass="register-root"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.com.tecnobinaryjc.abarroteria.kinal.controller.RegisterController">
 
     <children>
 
-        <ScrollPane fitToHeight="true"
-                    fitToWidth="true"
-                    hbarPolicy="NEVER"
-                    styleClass="transparent-scroll"
-                    AnchorPane.bottomAnchor="0.0"
-                    AnchorPane.leftAnchor="0.0"
-                    AnchorPane.rightAnchor="0.0"
-                    AnchorPane.topAnchor="0.0">
+        <StackPane AnchorPane.topAnchor="0.0"
+                   AnchorPane.bottomAnchor="0.0"
+                   AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0"
+                   styleClass="auth-root">
 
-            <content>
+            <VBox alignment="CENTER"
+                  maxWidth="560.0"
+                  prefWidth="560.0"
+                  spacing="15.0"
+                  styleClass="auth-card">
 
-                <StackPane minHeight="600.0" styleClass="auth-root">
+                <!-- ENCABEZADO -->
 
-                    <VBox alignment="CENTER"
-                          maxWidth="560.0"
-                          prefWidth="560.0"
-                          spacing="15.0"
-                          styleClass="auth-card">
+                <StackPane prefHeight="120.0"
+                           maxWidth="520.0"
+                           styleClass="register-header">
 
-                        <VBox alignment="CENTER" spacing="5.0">
-                            <Label text="Crear cuenta" styleClass="auth-title"/>
-                            <Label text="Completa los datos para registrarte" styleClass="auth-subtitle"/>
+                    <HBox alignment="CENTER_LEFT"
+                          spacing="18.0">
+
+                        <VBox alignment="CENTER_LEFT"
+                              spacing="5.0"
+                              HBox.hgrow="ALWAYS">
+
+                            <Label text="Crea una nueva cuenta en"
+                                   styleClass="register-title"/>
+
+                            <Label text="Completa los datos que se solicitan para Registrarte"
+                                   styleClass="register-subtitle"/>
+
                         </VBox>
 
-                        <GridPane hgap="14.0" vgap="12.0">
+                        <ImageView fitWidth="90.0"
+                                   fitHeight="90.0"
+                                   preserveRatio="true"
+                                   smooth="true">
 
-                            <columnConstraints>
-                                <ColumnConstraints percentWidth="50.0"/>
-                                <ColumnConstraints percentWidth="50.0"/>
-                            </columnConstraints>
+                            <image>
+                                <Image url="@../img/LogoAbarroteriaTCBinary.png"/>
+                            </image>
 
-                            <VBox spacing="6.0"
-                                  GridPane.columnIndex="0"
-                                  GridPane.rowIndex="0">
+                        </ImageView>
 
-                                <Label text="Nombre" styleClass="field-label"/>
+                    </HBox>
 
-                                <TextField fx:id="txtFieldNombre"
-                                           promptText="Tu nombre"
-                                           styleClass="input-field"/>
+                </StackPane>
 
-                            </VBox>
+                <!-- FORMULARIO -->
 
-                            <VBox spacing="6.0"
-                                  GridPane.columnIndex="1"
-                                  GridPane.rowIndex="0">
+                <GridPane hgap="14.0"
+                          vgap="12.0">
 
-                                <Label text="Apellido" styleClass="field-label"/>
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50.0"/>
+                        <ColumnConstraints percentWidth="50.0"/>
+                    </columnConstraints>
 
-                                <TextField fx:id="txtFieldApellido"
-                                           promptText="Tu apellido"
-                                           styleClass="input-field"/>
+                    <!-- NOMBRE -->
 
-                            </VBox>
+                    <VBox spacing="6.0"
+                          GridPane.columnIndex="0"
+                          GridPane.rowIndex="0">
 
-                            <VBox spacing="6.0"
-                                  GridPane.columnSpan="2"
-                                  GridPane.rowIndex="1">
+                        <Label text="Nombre"
+                               styleClass="field-label"/>
 
-                                <Label text="Correo electrónico" styleClass="field-label"/>
+                        <TextField fx:id="txtFieldNombre"
+                                   promptText="Tu nombre"
+                                   styleClass="input-field"/>
 
-                                <HBox spacing="8.0"
-                                      alignment="CENTER_LEFT">
+                    </VBox>
 
-                                    <TextField fx:id="txtFieldEmail"
-                                               promptText="nombre.apellido"
-                                               styleClass="input-field"
-                                               HBox.hgrow="ALWAYS"/>
+                    <!-- APELLIDO -->
 
-                                    <ComboBox fx:id="comboBoxExtension"
-                                              prefHeight="42.0"
-                                              prefWidth="150.0"
-                                              styleClass="input-field"/>
+                    <VBox spacing="6.0"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="0">
 
-                                </HBox>
+                        <Label text="Apellido"
+                               styleClass="field-label"/>
 
-                            </VBox>
+                        <TextField fx:id="txtFieldApellido"
+                                   promptText="Tu apellido"
+                                   styleClass="input-field"/>
 
-                            <VBox spacing="6.0"
-                                  GridPane.columnIndex="0"
-                                  GridPane.rowIndex="2">
+                    </VBox>
 
-                                <Label text="Contraseña" styleClass="field-label"/>
+                    <!-- CORREO -->
 
-                                <PasswordField fx:id="txtFieldPassword"
-                                               promptText="Mínimo 6 caracteres"
-                                               styleClass="input-field"/>
+                    <VBox spacing="6.0"
+                          GridPane.columnSpan="2"
+                          GridPane.rowIndex="1">
 
-                            </VBox>
+                        <Label text="Correo electrónico"
+                               styleClass="field-label"/>
 
-                            <VBox spacing="6.0"
-                                  GridPane.columnIndex="1"
-                                  GridPane.rowIndex="2">
+                        <HBox spacing="8.0"
+                              alignment="CENTER_LEFT">
 
-                                <Label text="Confirmar contraseña" styleClass="field-label"/>
+                            <TextField fx:id="txtFieldEmail"
+                                       promptText="ejemplo.123"
+                                       styleClass="input-field"
+                                       HBox.hgrow="ALWAYS"/>
 
-                                <PasswordField fx:id="txtFieldConfirmPassword"
-                                               promptText="Repite tu contraseña"
-                                               styleClass="input-field"/>
-
-                            </VBox>
-
-                            <VBox spacing="6.0"
-                                  GridPane.columnSpan="2"
-                                  GridPane.rowIndex="3">
-
-                                <Label text="Rol" styleClass="field-label"/>
-
-                                <ComboBox fx:id="comboBoxRol"
-                                          prefHeight="42.0"
-                                          promptText="Selecciona un rol"
-                                          styleClass="input-field"/>
-
-                            </VBox>
-
-                        </GridPane>
-
-                        <HBox alignment="CENTER" spacing="12.0">
-
-                            <Button mnemonicParsing="false"
-                                    onAction="#handleRegistrar"
-                                    prefHeight="44.0"
-                                    text="Registrarme"
-                                    styleClass="primary-button"
-                                    HBox.hgrow="ALWAYS"/>
-
-                            <Button mnemonicParsing="false"
-                                    onAction="#handleVolver"
-                                    prefHeight="44.0"
-                                    text="Volver"
-                                    styleClass="secondary-button"
-                                    HBox.hgrow="ALWAYS"/>
+                            <ComboBox fx:id="comboBoxExtension"
+                                      prefHeight="42.0"
+                                      prefWidth="150.0"
+                                      styleClass="input-field"/>
 
                         </HBox>
 
                     </VBox>
 
-                </StackPane>
+                    <!-- CONTRASEÑA -->
 
-            </content>
+                    <VBox spacing="6.0"
+                          GridPane.columnIndex="0"
+                          GridPane.rowIndex="2">
 
-        </ScrollPane>
+                        <Label text="Contraseña"
+                               styleClass="field-label"/>
+
+                        <PasswordField fx:id="txtFieldPassword"
+                                       promptText="Mínimo 6 caracteres"
+                                       styleClass="input-field"/>
+
+                    </VBox>
+
+                    <!-- CONFIRMAR CONTRASEÑA -->
+
+                    <VBox spacing="6.0"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="2">
+
+                        <Label text="Confirmar contraseña"
+                               styleClass="field-label"/>
+
+                        <PasswordField fx:id="txtFieldConfirmPassword"
+                                       promptText="Confirma tu contraseña"
+                                       styleClass="input-field"/>
+
+                    </VBox>
+
+                    <!-- ROL -->
+
+                    <VBox spacing="6.0"
+                          GridPane.columnSpan="2"
+                          GridPane.rowIndex="3">
+
+                        <Label text="Tu cuenta será:"
+                               styleClass="field-label"/>
+
+                        <ComboBox fx:id="comboBoxRol"
+                                  prefHeight="42.0"
+                                  promptText="Tu cuenta será de:"
+                                  styleClass="input-field"/>
+
+                    </VBox>
+
+                </GridPane>
+
+                <!-- BOTONES -->
+
+                <HBox alignment="CENTER"
+                      spacing="12.0">
+
+                    <Button mnemonicParsing="false"
+                            onAction="#handleRegistrar"
+                            prefHeight="44.0"
+                            text="Registrarme"
+                            styleClass="primary-button"
+                            HBox.hgrow="ALWAYS"/>
+
+                    <Button mnemonicParsing="false"
+                            onAction="#handleVolver"
+                            prefHeight="44.0"
+                            text="Volver"
+                            styleClass="secondary-button"
+                            HBox.hgrow="ALWAYS"/>
+
+                </HBox>
+
+            </VBox>
+
+        </StackPane>
 
     </children>
 
