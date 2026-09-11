@@ -1,17 +1,25 @@
 package main.java.com.tecnobinaryjc.abarroteria.kinal.model;
 
-// Representa un producto de la abarrotería.
 public class Producto {
-   private String id_producto;
-   private String nombre_producto;
-   private int stock;
-   private double precio;
 
-    public Producto(String id_producto, String nombre_producto, int stock, double precio) {
+    private String id_producto;
+    private String nombre_producto;
+    private int stock;
+    private double precio;
+    private String imagen_url;
+
+    public Producto(
+            String id_producto,
+            String nombre_producto,
+            int stock,
+            double precio,
+            String imagen_url) {
+
         this.id_producto = id_producto;
         this.nombre_producto = nombre_producto;
         this.stock = stock;
         this.precio = precio;
+        this.imagen_url = imagen_url;
     }
 
     public String getId_producto() {
@@ -44,5 +52,13 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getImagen_url() {
+        return imagen_url;
+    }
+
+    public void setImagen_url(String imagen_url) {
+        this.imagen_url = imagen_url;
     }
 }
