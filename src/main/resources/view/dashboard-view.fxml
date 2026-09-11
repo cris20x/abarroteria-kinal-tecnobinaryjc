@@ -13,36 +13,47 @@
             fx:controller="main.java.com.tecnobinaryjc.abarroteria.kinal.controller.DashboardController">
 
     <top>
-        <VBox spacing="4.0" styleClass="dashboard-header">
+        <VBox spacing="4.0"
+              styleClass="dashboard-header">
+
             <Label text="Inventario de productos"
                    styleClass="dashboard-title"/>
-            <Label text="Consulta y administra los productos registrados"
+
+            <Label text="Administración de productos de la abarrotería"
                    styleClass="dashboard-subtitle"/>
+
         </VBox>
     </top>
 
     <center>
-        <VBox spacing="16.0" styleClass="dashboard-content">
+        <VBox spacing="16.0"
+              styleClass="dashboard-content">
 
             <TableView fx:id="tableProducto"
                        VBox.vgrow="ALWAYS">
 
                 <columns>
+
+                    <TableColumn fx:id="tableColumnImagen"
+                                 prefWidth="110.0"
+                                 text="Producto"/>
+
                     <TableColumn fx:id="tableColumnIdProducto"
-                                 prefWidth="180.0"
+                                 prefWidth="150.0"
                                  text="ID"/>
 
                     <TableColumn fx:id="tableColumnNombreProducto"
-                                 prefWidth="300.0"
-                                 text="Nombre"/>
+                                 prefWidth="320.0"
+                                 text="Nombre del producto"/>
 
                     <TableColumn fx:id="tableColumnStock"
-                                 prefWidth="150.0"
+                                 prefWidth="180.0"
                                  text="Stock"/>
 
                     <TableColumn fx:id="tableColumnPrecio"
-                                 prefWidth="160.0"
+                                 prefWidth="150.0"
                                  text="Precio"/>
+
                 </columns>
 
             </TableView>
@@ -57,15 +68,15 @@
                 <Region HBox.hgrow="ALWAYS"/>
 
                 <Button onAction="#handleAnadirProducto"
-                        text="Añadir"
+                        text="＋ Añadir producto"
                         styleClass="primary-button"/>
 
                 <Button onAction="#handleActualizarProducto"
-                        text="Actualizar"
+                        text="✎ Actualizar"
                         styleClass="secondary-button"/>
 
                 <Button onAction="#handleEliminarProducto"
-                        text="Eliminar seleccionado"
+                        text="✕ Eliminar"
                         styleClass="danger-button"/>
 
             </HBox>
